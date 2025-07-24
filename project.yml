@@ -1,7 +1,7 @@
 name: NoteAIPlus
 bundleIdPrefix: com.noteaiplus
 deploymentTarget:
-  iOS: "15.0"
+  iOS: "16.0"
 
 options:
   minimumXcodeGenVersion: 2.40.0
@@ -16,7 +16,7 @@ settings:
     MARKETING_VERSION: "1.0.0"
     CURRENT_PROJECT_VERSION: "1"
     SWIFT_VERSION: "5.9"
-    IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
     TARGETED_DEVICE_FAMILY: "1,2"
     SUPPORTS_MACCATALYST: false
     ENABLE_USER_SCRIPT_SANDBOXING: false
@@ -42,7 +42,7 @@ packages:
     # from: 4.43.0
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
-    from: 10.0.0
+    from: 10.28.0
   Down:
     url: https://github.com/johnxnguyen/Down
     from: 0.11.0
@@ -122,27 +122,28 @@ targets:
           - "$(inherited)"
           - "$(PLATFORM_DIR)/Developer/Library/Frameworks"
     
-    preBuildScripts:
-      - name: "SwiftLint"
-        script: |
-          if command -v swiftlint >/dev/null 2>&1
-          then
-              swiftlint
-          else
-              echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
-          fi
-        inputFiles:
-          - "$(SRCROOT)/Carthage/Checkouts/SwiftLint/swiftlint"
-        runOnlyWhenInstalling: false
+    # Temporarily disabled build scripts to resolve dependency issues
+    # preBuildScripts:
+    #   - name: "SwiftLint"
+    #     script: |
+    #       if command -v swiftlint >/dev/null 2>&1
+    #       then
+    #           swiftlint
+    #       else
+    #           echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+    #       fi
+    #     inputFiles:
+    #       - "$(SRCROOT)/Carthage/Checkouts/SwiftLint/swiftlint"
+    #     runOnlyWhenInstalling: false
     
-    postBuildScripts:
-      - name: "Firebase Crashlytics"
-        script: |
-          if [ -f "${PODS_ROOT}/FirebaseCrashlytics/run" ]; then
-            "${PODS_ROOT}/FirebaseCrashlytics/run"
-          fi
-        inputFiles:
-          - "$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)"
+    # postBuildScripts:
+    #   - name: "Firebase Crashlytics"
+    #     script: |
+    #       if [ -f "${PODS_ROOT}/FirebaseCrashlytics/run" ]; then
+    #         "${PODS_ROOT}/FirebaseCrashlytics/run"
+    #       fi
+    #     inputFiles:
+    #       - "$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)"
 
   NoteAIPlusTests:
     type: bundle.unit-test

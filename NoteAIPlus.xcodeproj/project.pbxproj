@@ -523,10 +523,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C38E20C867EF5CA2E14ECCA4 /* Build configuration list for PBXNativeTarget "NoteAIPlus" */;
 			buildPhases = (
-				33123E35C0A2532AA076A1A9 /* SwiftLint */,
 				D6AE9C9D18A78B9354A4784F /* Sources */,
 				334354297CC6DBBD2DE21823 /* Frameworks */,
-				6A838AB3086388F5987B8EEF /* Firebase Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -600,47 +598,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		33123E35C0A2532AA076A1A9 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Checkouts/SwiftLint/swiftlint",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		6A838AB3086388F5987B8EEF /* Firebase Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Firebase Crashlytics";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"${PODS_ROOT}/FirebaseCrashlytics/run\" ]; then\n  \"${PODS_ROOT}/FirebaseCrashlytics/run\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		726EE5704632A94AF434A167 /* Sources */ = {
@@ -853,7 +810,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -942,7 +899,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1038,7 +995,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				minimumVersion = 10.28.0;
 			};
 		};
 		5482B4A59F43F0E00D97DA2D /* XCRemoteSwiftPackageReference "Down" */ = {
