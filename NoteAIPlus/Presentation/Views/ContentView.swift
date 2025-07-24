@@ -23,13 +23,21 @@ struct ContentView: View {
                     }
                     .tag(1)
                 
+                // 文字起こし画面
+                TranscriptionView()
+                    .tabItem {
+                        Image(systemName: "doc.text.fill")
+                        Text("文字起こし")
+                    }
+                    .tag(2)
+                
                 // 設定画面
                 SettingsView()
                     .tabItem {
                         Image(systemName: "gearshape.fill")
                         Text("設定")
                     }
-                    .tag(2)
+                    .tag(3)
             }
         } else {
             // スプラッシュスクリーン

@@ -1,6 +1,7 @@
 import SwiftUI
 import Firebase
 import RevenueCat
+import AVFoundation
 
 @main
 struct NoteAIPlusApp: App {
@@ -13,33 +14,43 @@ struct NoteAIPlusApp: App {
         // RevenueCat初期化
         Purchases.logLevel = .debug
         Purchases.configure(withAPIKey: "YOUR_REVENUECAT_API_KEY")
+        
+        // Audio session setup
+        setupAudioSession()
     }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(appState)
-                .onAppear {
-                    // アプリ起動時の初期化処理
-                    setupAudioSession()
+                .task {
+                    await appState.initialize()
+                }
+                .alert("エラー", isPresented: $appState.showingError) {
+                    Button("OK") {
+                        appState.dismissError()
+                    }
+                } message: {
+                    if let error = appState.currentError {
+                        VStack {
+                            Text(error.localizedDescription)
+                            if let suggestion = error.recoverySuggestion {
+                                Text(suggestion)
+                                    .font(.caption)
+                            }
+                        }
+                    }
                 }
         }
     }
     
     private func setupAudioSession() {
-        // 音声セッションの初期設定
-        // バックグラウンド録音対応
-    }
-}
-
-class AppState: ObservableObject {
-    @Published var isInitialized = false
-    @Published var currentUser: User?
-    @Published var subscriptionStatus: SubscriptionStatus = .free
-    
-    enum SubscriptionStatus {
-        case free
-        case basic
-        case pro
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth])
+            try audioSession.setActive(true)
+        } catch {
+            print("Failed to setup audio session: \(error)")
+        }
     }
 }

@@ -2,8 +2,10 @@ import SwiftUI
 
 struct RecordingView: View {
     @StateObject private var viewModel = RecordingViewModel()
+    @EnvironmentObject private var appState: AppState
     @State private var showingSettings = false
     @State private var showingRecordingsList = false
+    @State private var showingTranscriptionPrompt = false
     
     var body: some View {
         NavigationStack {
@@ -60,6 +62,25 @@ struct RecordingView: View {
             }
             .sheet(isPresented: $showingRecordingsList) {
                 RecordingsListView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $showingTranscriptionPrompt) {
+                if let latestRecording = viewModel.recordings.first {
+                    TranscriptionPromptView(recording: latestRecording) { recording in
+                        appState.startTranscriptionForRecording(recording)
+                        showingTranscriptionPrompt = false
+                    }
+                }
+            }
+            .onChange(of: viewModel.recordings.count) { _, newCount in
+                // Show transcription prompt when a new recording is added
+                if newCount > 0, let latestRecording = viewModel.recordings.first {
+                    // Only show if this is a newly created recording
+                    if latestRecording.date.timeIntervalSinceNow > -10 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            showingTranscriptionPrompt = true
+                        }
+                    }
+                }
             }
         }
     }
