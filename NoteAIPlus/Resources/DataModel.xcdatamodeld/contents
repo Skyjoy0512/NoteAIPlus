@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DocumentEntity" representedClassName="DocumentEntity" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+    </entity>
+    <entity name="RecordingEntity" representedClassName="RecordingEntity" syncable="YES">
+        <attribute name="audioFileURL" optional="YES" attributeType="URI"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="date" optional="YES" attributeType="Date"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="isFromLimitless" optional="YES" attributeType="Boolean" defaultValueString="NO"/>
+        <attribute name="language" optional="YES" attributeType="String" defaultValueString="ja"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="transcription" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date"/>
+        <attribute name="whisperModel" optional="YES" attributeType="String" defaultValueString="base"/>
+        <relationship name="speakers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SpeakerEntity" inverseName="recording" inverseEntity="SpeakerEntity"/>
+        <relationship name="summaries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SummaryEntity" inverseName="recording" inverseEntity="SummaryEntity"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TagEntity" inverseName="recordings" inverseEntity="TagEntity"/>
+        <relationship name="transcriptionResults" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TranscriptionEntity" inverseName="recording" inverseEntity="TranscriptionEntity"/>
+    </entity>
+    <entity name="SpeakerEntity" representedClassName="SpeakerEntity" syncable="YES">
+        <attribute name="confidence" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="voiceSignature" optional="YES" attributeType="Binary"/>
+        <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecordingEntity" inverseName="speakers" inverseEntity="RecordingEntity"/>
+        <relationship name="segments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TranscriptionSegmentEntity" inverseName="speaker" inverseEntity="TranscriptionSegmentEntity"/>
+    </entity>
+    <entity name="SummaryEntity" representedClassName="SummaryEntity" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecordingEntity" inverseName="summaries" inverseEntity="RecordingEntity"/>
+    </entity>
+    <entity name="TagEntity" representedClassName="TagEntity" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="recordings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RecordingEntity" inverseName="tags" inverseEntity="RecordingEntity"/>
+    </entity>
+    <entity name="TranscriptionEntity" representedClassName="TranscriptionEntity" syncable="YES">
+        <attribute name="confidence" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="language" optional="YES" attributeType="String" defaultValueString="ja"/>
+        <attribute name="modelUsed" optional="YES" attributeType="String"/>
+        <attribute name="processingTime" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="quality" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="recording" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecordingEntity" inverseName="transcriptionResults" inverseEntity="RecordingEntity"/>
+        <relationship name="segments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TranscriptionSegmentEntity" inverseName="transcription" inverseEntity="TranscriptionSegmentEntity"/>
+    </entity>
+    <entity name="TranscriptionSegmentEntity" representedClassName="TranscriptionSegmentEntity" syncable="YES">
+        <attribute name="confidence" optional="YES" attributeType="Float" defaultValueString="0.0"/>
+        <attribute name="endTime" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="id" optional="YES" attributeType="UUID"/>
+        <attribute name="startTime" optional="YES" attributeType="Double" defaultValueString="0.0"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="speaker" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpeakerEntity" inverseName="segments" inverseEntity="SpeakerEntity"/>
+        <relationship name="transcription" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TranscriptionEntity" inverseName="segments" inverseEntity="TranscriptionEntity"/>
+    </entity>
+</model>

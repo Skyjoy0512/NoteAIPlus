@@ -22,6 +22,7 @@
 		47E68B2E09F3F532BB904E91 /* AudioProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888EC6A53AA65C34411957B /* AudioProcessor.swift */; };
 		4A0E2262C00F64B509883A22 /* RecordingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A916F0436DF542717B18C7C /* RecordingIntegrationTests.swift */; };
 		4B4F3AE757065B779E42CCFB /* SpeakerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C8691571CDC1268FFB86B /* SpeakerEntity.swift */; };
+		537D09A7058454B4B3A366F8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89C369259E4639FD34056126 /* DataModel.xcdatamodeld */; };
 		559D08C16624AD0F212300A9 /* TranscriptionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E95642091D71EAE258886E /* TranscriptionSettingsView.swift */; };
 		56CA446D73373B060AB4AECB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = D7EE103E627E59AA64E60DE1 /* GRDB */; };
 		68FF8F4257889401C0454FEC /* TranscriptionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7022A3E704B26989860E33 /* TranscriptionResult.swift */; };
@@ -254,6 +255,7 @@
 		42C47EE2C96BCEAC58957C0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				89C369259E4639FD34056126 /* DataModel.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -666,6 +668,7 @@
 				D7B2CF1FA08EFD2E87671CEF /* AudioRecordingService.swift in Sources */,
 				2E1F4C3C2CABDC7456E75050 /* ContentView.swift in Sources */,
 				A1EFBCA4A301211EFD642183 /* CoreDataManager.swift in Sources */,
+				537D09A7058454B4B3A366F8 /* DataModel.xcdatamodeld in Sources */,
 				A1EDB74D7746E20B00F54135 /* Document.swift in Sources */,
 				F05A00567B8A20C39A971529 /* DocumentEntity.swift in Sources */,
 				D5117FD3BE8B4335E4B6B6ED /* DocumentRepositoryProtocol.swift in Sources */,
@@ -850,7 +853,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -860,7 +863,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -937,7 +940,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -948,7 +951,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1129,6 +1132,17 @@
 			productName = WhisperKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		89C369259E4639FD34056126 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+			);
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9F8D1A20FBE401FCED325399 /* Project object */;
 }

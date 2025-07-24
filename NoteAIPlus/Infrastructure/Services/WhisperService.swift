@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import WhisperKit
+import UIKit
 
 class WhisperService: NSObject, TranscriptionServiceProtocol {
     // MARK: - Properties

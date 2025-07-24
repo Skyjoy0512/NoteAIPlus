@@ -6,6 +6,9 @@ struct Recording: Identifiable, Codable, Equatable {
     let date: Date
     let duration: TimeInterval
     let audioFileURL: URL
+    
+    // Computed property for backward compatibility
+    var fileURL: URL { audioFileURL }
     var transcription: String?
     let whisperModel: String
     let language: String
