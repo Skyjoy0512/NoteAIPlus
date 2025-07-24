@@ -50,7 +50,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
     
     func startRecording() async throws -> URL {
         guard !isCurrentlyRecording else {
-            throw RecordingError.alreadyRecording
+            throw AudioRecordingError.alreadyRecording
         }
         
         // Check microphone permission
@@ -84,7 +84,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
     
     func stopRecording() async throws -> RecordingResult {
         guard isCurrentlyRecording else {
-            throw RecordingError.noActiveRecording
+            throw AudioRecordingError.noActiveRecording
         }
         
         // Stop audio engine
@@ -93,7 +93,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
         
         // Finalize audio file
         guard let audioFile = audioFile else {
-            throw RecordingError.fileSaveFailed
+            throw AudioRecordingError.fileSaveFailed
         }
         
         let fileURL = audioFile.url
@@ -119,7 +119,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
     
     func pauseRecording() async throws {
         guard isCurrentlyRecording && !isPaused else {
-            throw RecordingError.cannotPause
+            throw AudioRecordingError.cannotPause
         }
         
         // Pause audio engine
@@ -136,7 +136,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
     
     func resumeRecording() async throws {
         guard isCurrentlyRecording && isPaused else {
-            throw RecordingError.cannotResume
+            throw AudioRecordingError.cannotResume
         }
         
         // Resume audio engine
@@ -157,7 +157,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
         case .granted:
             return
         case .denied:
-            throw RecordingError.permissionDenied
+            throw AudioRecordingError.permissionDenied
         case .undetermined:
             let granted = await withCheckedContinuation { continuation in
                 AVAudioSession.sharedInstance().requestRecordPermission { granted in
@@ -166,10 +166,10 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
             }
             
             if !granted {
-                throw RecordingError.permissionDenied
+                throw AudioRecordingError.permissionDenied
             }
         @unknown default:
-            throw RecordingError.permissionDenied
+            throw AudioRecordingError.permissionDenied
         }
     }
     
@@ -186,7 +186,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
             try recordingSession.setActive(true)
             
         } catch {
-            throw RecordingError.audioSessionError(error)
+            throw AudioRecordingError.audioSessionError(error)
         }
     }
     
@@ -214,7 +214,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
             audioFile = try AVAudioFile(forWriting: fileURL, settings: settings)
             return fileURL
         } catch {
-            throw RecordingError.fileCreationError(error)
+            throw AudioRecordingError.fileCreationError(error)
         }
     }
     
@@ -305,7 +305,7 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
     
     private func checkDiskSpace() throws {
         guard let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            throw RecordingError.diskSpaceInsufficient
+            throw AudioRecordingError.diskSpaceInsufficient
         }
         
         do {
@@ -313,11 +313,11 @@ class AudioRecordingService: NSObject, AudioRecordingServiceProtocol {
             if let availableCapacity = values.volumeAvailableCapacity {
                 // Require at least 100MB free space
                 if availableCapacity < 100 * 1024 * 1024 {
-                    throw RecordingError.diskSpaceInsufficient
+                    throw AudioRecordingError.diskSpaceInsufficient
                 }
             }
         } catch {
-            throw RecordingError.diskSpaceInsufficient
+            throw AudioRecordingError.diskSpaceInsufficient
         }
     }
     
@@ -421,7 +421,7 @@ struct RecordingResult {
     let fileSize: Int64
 }
 
-enum RecordingError: LocalizedError, Equatable {
+enum AudioRecordingError: LocalizedError, Equatable {
     case alreadyRecording
     case noActiveRecording
     case cannotPause
@@ -433,7 +433,7 @@ enum RecordingError: LocalizedError, Equatable {
     case fileSaveFailed
     case diskSpaceInsufficient
     
-    static func == (lhs: RecordingError, rhs: RecordingError) -> Bool {
+    static func == (lhs: AudioRecordingError, rhs: AudioRecordingError) -> Bool {
         switch (lhs, rhs) {
         case (.alreadyRecording, .alreadyRecording),
              (.noActiveRecording, .noActiveRecording),
