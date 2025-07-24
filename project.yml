@@ -21,6 +21,7 @@ settings:
     TARGETED_DEVICE_FAMILY: "1,2"
     SUPPORTS_MACCATALYST: false
     ENABLE_USER_SCRIPT_SANDBOXING: false
+    SWIFT_STRICT_CONCURRENCY: complete
 
 packages:
   WhisperKit:
@@ -35,9 +36,9 @@ packages:
   SDWebImageSwiftUI:
     url: https://github.com/SDWebImage/SDWebImageSwiftUI
     from: 2.2.0
-  RevenueCat:
-    url: https://github.com/RevenueCat/purchases-ios
-    from: 4.0.0
+  # RevenueCat:
+    # url: https://github.com/RevenueCat/purchases-ios
+    # from: 4.43.0
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
     from: 10.0.0
@@ -96,8 +97,8 @@ targets:
       - package: GRDB
         product: GRDB
       - package: SDWebImageSwiftUI
-      - package: RevenueCat
-        product: RevenueCat
+      # - package: RevenueCat
+        # product: RevenueCat
       - package: Firebase
         product: FirebaseAuth
       - package: Firebase

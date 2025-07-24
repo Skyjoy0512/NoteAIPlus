@@ -1,6 +1,6 @@
 import SwiftUI
 import Firebase
-import RevenueCat
+// import RevenueCat
 import AVFoundation
 
 @main
@@ -11,9 +11,9 @@ struct NoteAIPlusApp: App {
         // Firebase初期化
         FirebaseApp.configure()
         
-        // RevenueCat初期化
-        Purchases.logLevel = .debug
-        Purchases.configure(withAPIKey: "YOUR_REVENUECAT_API_KEY")
+        // RevenueCat初期化 (一時的にコメントアウト)
+        // Purchases.logLevel = .debug
+        // Purchases.configure(withAPIKey: "YOUR_REVENUECAT_API_KEY")
         
         // Audio session setup
         setupAudioSession()
