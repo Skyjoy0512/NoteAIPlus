@@ -863,6 +863,7 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = NoteAIPlus/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -872,6 +873,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noteaiplus.app;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -926,6 +929,7 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = NoteAIPlus/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -935,6 +939,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.noteaiplus.app;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

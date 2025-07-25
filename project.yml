@@ -51,6 +51,7 @@ targets:
   NoteAIPlusApp:
     type: application
     platform: iOS
+    deploymentTarget: "16.0"
     
     sources:
       - path: NoteAIPlus
@@ -121,6 +122,8 @@ targets:
         FRAMEWORK_SEARCH_PATHS:
           - "$(inherited)"
           - "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+        SUPPORTS_MACCATALYST: false
     
     # Temporarily disabled build scripts to resolve dependency issues
     # preBuildScripts:
