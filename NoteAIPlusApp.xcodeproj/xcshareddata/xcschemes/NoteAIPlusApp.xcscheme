@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9468DB7DEA300B01374C31EB"
-               BuildableName = "NoteAIPlus.app"
-               BlueprintName = "NoteAIPlus"
-               ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+               BlueprintIdentifier = "29D1BB72AB4C0F48BB7E38D9"
+               BuildableName = "NoteAIPlusApp.app"
+               BlueprintName = "NoteAIPlusApp"
+               ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,10 +29,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3709B9ED8746A4E361DEA500"
+               BlueprintIdentifier = "A1D8BE8BA82B55526B2F4A21"
                BuildableName = "NoteAIPlusTests.xctest"
                BlueprintName = "NoteAIPlusTests"
-               ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+               ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,10 +43,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71C6E40606B1B06BE231A0DD"
+               BlueprintIdentifier = "7CD7276B7C0A255445D91248"
                BuildableName = "NoteAIPlusUITests.xctest"
                BlueprintName = "NoteAIPlusUITests"
-               ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+               ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,10 +61,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9468DB7DEA300B01374C31EB"
-            BuildableName = "NoteAIPlus.app"
-            BlueprintName = "NoteAIPlus"
-            ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+            BlueprintIdentifier = "29D1BB72AB4C0F48BB7E38D9"
+            BuildableName = "NoteAIPlusApp.app"
+            BlueprintName = "NoteAIPlusApp"
+            ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -73,10 +73,10 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3709B9ED8746A4E361DEA500"
+               BlueprintIdentifier = "A1D8BE8BA82B55526B2F4A21"
                BuildableName = "NoteAIPlusTests.xctest"
                BlueprintName = "NoteAIPlusTests"
-               ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+               ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -84,10 +84,10 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71C6E40606B1B06BE231A0DD"
+               BlueprintIdentifier = "7CD7276B7C0A255445D91248"
                BuildableName = "NoteAIPlusUITests.xctest"
                BlueprintName = "NoteAIPlusUITests"
-               ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+               ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -96,10 +96,10 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9468DB7DEA300B01374C31EB"
-            BuildableName = "NoteAIPlus.app"
-            BlueprintName = "NoteAIPlus"
-            ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+            BlueprintIdentifier = "29D1BB72AB4C0F48BB7E38D9"
+            BuildableName = "NoteAIPlusApp.app"
+            BlueprintName = "NoteAIPlusApp"
+            ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
    </TestAction>
@@ -117,10 +117,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9468DB7DEA300B01374C31EB"
-            BuildableName = "NoteAIPlus.app"
-            BlueprintName = "NoteAIPlus"
-            ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+            BlueprintIdentifier = "29D1BB72AB4C0F48BB7E38D9"
+            BuildableName = "NoteAIPlusApp.app"
+            BlueprintName = "NoteAIPlusApp"
+            ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -143,10 +143,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9468DB7DEA300B01374C31EB"
-            BuildableName = "NoteAIPlus.app"
-            BlueprintName = "NoteAIPlus"
-            ReferencedContainer = "container:NoteAIPlus.xcodeproj">
+            BlueprintIdentifier = "29D1BB72AB4C0F48BB7E38D9"
+            BuildableName = "NoteAIPlusApp.app"
+            BlueprintName = "NoteAIPlusApp"
+            ReferencedContainer = "container:NoteAIPlusApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>

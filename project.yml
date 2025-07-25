@@ -1,4 +1,4 @@
-name: NoteAIPlus
+name: NoteAIPlusApp
 bundleIdPrefix: com.noteaiplus
 deploymentTarget:
   iOS: "16.0"
@@ -48,7 +48,7 @@ packages:
     from: 0.11.0
 
 targets:
-  NoteAIPlus:
+  NoteAIPlusApp:
     type: application
     platform: iOS
     
@@ -155,7 +155,7 @@ targets:
           - "**/*.md"
     
     dependencies:
-      - target: NoteAIPlus
+      - target: NoteAIPlusApp
     
     settings:
       base:
@@ -174,7 +174,7 @@ targets:
           - "**/*.md"
     
     dependencies:
-      - target: NoteAIPlus
+      - target: NoteAIPlusApp
     
     settings:
       base:
@@ -184,10 +184,10 @@ targets:
         GENERATE_INFOPLIST_FILE: true
 
 schemes:
-  NoteAIPlus:
+  NoteAIPlusApp:
     build:
       targets:
-        NoteAIPlus: all
+        NoteAIPlusApp: all
         NoteAIPlusTests: [test]
         NoteAIPlusUITests: [test]
     run:
@@ -200,7 +200,7 @@ schemes:
       config: Debug
       gatherCoverageData: true
       coverageTargets:
-        - NoteAIPlus
+        - NoteAIPlusApp
       targets:
         - name: NoteAIPlusTests
           parallelizable: true
