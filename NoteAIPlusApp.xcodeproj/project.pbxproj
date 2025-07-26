@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0037FFC52D0EE6D729699259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A072338EE181856C4EFF70BB /* Assets.xcassets */; };
 		01BE0AC4475CDC76FD8CE509 /* RecordingRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5535229EBC9E21B84D7157F /* RecordingRepositoryProtocol.swift */; };
 		03C11579408205B2E3995ED0 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FD9051635B109FFFD1C50F /* RecordButton.swift */; };
 		04973112DF53A54FEFA5E4FC /* RecordingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFC581DDFE48363DFCF8D82 /* RecordingUseCase.swift */; };
@@ -109,6 +110,7 @@
 		90050DACF672E59E8BC7EC57 /* NoteAIPlusTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NoteAIPlusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9078A988546D9FE75171B2D7 /* NoteAIPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAIPlusApp.swift; sourceTree = "<group>"; };
 		A04EBC340E39026300DC668C /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		A072338EE181856C4EFF70BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1693E741F374E1DF8924D76 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		A2C4A0E0586CB6EDE523A486 /* NoteAIPlusUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NoteAIPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8D05A1BE17627EC2E8B3A6 /* VectorEmbeddingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorEmbeddingEntity.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 		E3906C4D85AFC6C1B2829B30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A072338EE181856C4EFF70BB /* Assets.xcassets */,
 				B1D8410DBE97015F4134F58C /* DataModel.xcdatamodeld */,
 			);
 			path = Resources;
@@ -488,6 +491,7 @@
 			buildConfigurationList = DAB46D509BADD62773FD3721 /* Build configuration list for PBXNativeTarget "NoteAIPlusApp" */;
 			buildPhases = (
 				5FB31CF867CF7CC3431A15B2 /* Sources */,
+				A826F4F29598437032F9AD54 /* Resources */,
 				03D3698CF811E2321EC1D544 /* Frameworks */,
 			);
 			buildRules = (
@@ -598,6 +602,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A826F4F29598437032F9AD54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0037FFC52D0EE6D729699259 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5FB31CF867CF7CC3431A15B2 /* Sources */ = {

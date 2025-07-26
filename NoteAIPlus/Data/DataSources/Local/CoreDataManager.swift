@@ -2,6 +2,7 @@ import Foundation
 import CoreData
 import Combine
 
+@MainActor
 class CoreDataManager: ObservableObject {
     static let shared = CoreDataManager()
     

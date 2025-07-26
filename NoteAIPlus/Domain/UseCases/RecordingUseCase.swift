@@ -261,19 +261,7 @@ struct RecordingResult {
     let fileSize: Int64
 }
 
-struct TranscriptionResult {
-    let text: String
-    let confidence: Float
-    let language: String
-    let segments: [TranscriptionSegment]
-}
-
-struct TranscriptionSegment {
-    let startTime: TimeInterval
-    let endTime: TimeInterval
-    let text: String
-    let confidence: Float
-}
+// TranscriptionResult and TranscriptionSegment are defined in Domain/Entities/TranscriptionResult.swift
 
 struct RecordingStatistics {
     let totalRecordings: Int
@@ -327,11 +315,7 @@ protocol AudioRecordingServiceProtocol {
     var recordingTime: AnyPublisher<TimeInterval, Never> { get }
 }
 
-protocol TranscriptionServiceProtocol {
-    func transcribe(audioURL: URL, model: String) async throws -> TranscriptionResult
-    func cancelTranscription()
-    var progress: AnyPublisher<Float, Never> { get }
-}
+// TranscriptionServiceProtocol is defined in Infrastructure/Services/WhisperService.swift
 
 // MARK: - Dummy Implementation for Testing
 
