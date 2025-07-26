@@ -77,13 +77,34 @@ struct SplashView: View {
     }
 }
 
-// プレースホルダービュー
+// ホーム画面
 struct HomeView: View {
     var body: some View {
-        NavigationStack {
-            Text("録音一覧がここに表示されます")
-                .navigationTitle("ホーム")
+        GeometryReader { geometry in
+            ZStack {
+                // 背景色
+                Color(red: 0.898, green: 0.898, blue: 0.902)
+                    .ignoresSafeArea(.all)
+                
+                VStack {
+                    // メインコンテンツがここに追加される
+                    Text("NoteAI Plus")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                        .padding(.top, 60)
+                    
+                    Spacer()
+                    
+                    Text("録音一覧がここに表示されます")
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                }
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
